@@ -1,0 +1,15 @@
+apiVersion: compliance.openshift.io/v1alpha1
+kind: TailoredProfile
+metadata:
+ name: cis-compliance-hypershift
+ namespace: openshift-compliance
+ annotations:
+   compliance.openshift.io/product-type: Platform
+spec:
+ title: CIS Benchmark for Hypershift
+ description: CIS Benchmark for Hypershift Master-plane components
+ extends: ocp4-cis
+ setValues:
+   - name: ocp4-hypershift-cluster
+     value: "wenshen-hypershift"
+     rationale: This value is used for HyperShift version detection, and also to determine the namespace of the hosted cluster
